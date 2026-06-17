@@ -1,20 +1,16 @@
 import { createFileRoute } from '@tanstack/react-router'
-import {queryOptions} from "@tanstack/react-query";
+//import {queryOptions} from "@tanstack/react-query";
 
 export const Route = createFileRoute('/about')({
-    component: About,
+    component: () => <div className="p-2">Hello from About!</div>
 })
 
-function About() {
-    return <div className="p-2">Hello from About!</div>
-}
-
 // src/routes/posts.tsx
-const getQueryOptions = queryOptions({
+/* const getQueryOptions = queryOptions({
     queryKey: ['number'],
     queryFn: () => mockHttpCall(),
 })
-
+*/
 
  
 export function mockHttpCall(): Promise<number> {
