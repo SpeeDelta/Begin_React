@@ -1,27 +1,18 @@
-import {Link, Outlet, createRootRoute} from "@tanstack/react-router";
+import { Outlet, createRootRoute } from "@tanstack/react-router";
+import Sidebar from "@/features/General/SideBar";
 
-const activeProps = {
-    style:
-        {
-            fontWeight: "bold",
-            color: "red",
-        },
-};
 export const Route = createRootRoute({
-    component: () => (
-        <>
-            <ul>
-                <li>
-                    <Link to="/" activeProps={activeProps}> Home </Link>
-                </li>
-                <li>
-                    <Link to="/about" activeProps={activeProps}> About </Link>
-                </li>
-                <li>
-                    <Link to="/profile" activeProps={activeProps}> Profile </Link>
-                </li>
-            </ul>
-            <Outlet/>
-        </>
-    ),
+    component: RootLayout,
 });
+
+// eslint-disable-next-line react-refresh/only-export-components
+function RootLayout() {
+    return (
+        <>
+            <Sidebar />
+            <main style={{ paddingTop: "80px" }}>
+                <Outlet />
+            </main>
+        </>
+    );
+}
