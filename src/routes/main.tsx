@@ -1,3 +1,4 @@
+/*
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
@@ -6,6 +7,7 @@ import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { routeTree } from '../routeTree.gen'
 
 // Create a new router instance
+
 const router = createRouter({ routeTree })
 
 // Register the router instance for type safety
@@ -25,3 +27,19 @@ if (!rootElement.innerHTML) {
         </StrictMode>
     )
 }
+*/
+
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "../index.css";
+
+import App from "../App";
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
+const root = createRoot(document.getElementById("root"));
+root.render(
+    <StrictMode>
+        <App />
+    </StrictMode>
+);

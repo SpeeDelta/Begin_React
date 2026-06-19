@@ -1,16 +1,8 @@
-import "./App.css"
-import {createRouter, RouterProvider} from "@tanstack/react-router";
-import {routeTree} from "@/routeTree.gen.ts";
-
-const router = createRouter({ routeTree });
-
-declare module '@tanstack/react-router' {
-    interface Register
-    {
-        router: typeof router;
-    }
-}
+import {SignUp} from "@/Page/Login/features/SignUp.tsx";
 
 export default function App() {
-    return <RouterProvider router={router} />;
+    return (
+            <SignUp>
+        </SignUp>
+    )
 }

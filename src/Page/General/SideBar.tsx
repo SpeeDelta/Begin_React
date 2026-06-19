@@ -5,7 +5,7 @@ import styled from "styled-components";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import { Link } from "@tanstack/react-router";
-import { SidebarData, type SidebarItem } from "./SidebarData";
+import { SidebarData, type SidebarItem } from "./SidebarData.tsx";
 import { IconContext } from "react-icons/lib";
 
 const Nav = styled.div`
