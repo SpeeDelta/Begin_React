@@ -1,8 +1,7 @@
-import {SignUp} from "@/Page/Login/features/SignUp.tsx";
+import {Form} from "@/Page/Form/features/Form.tsx";
 
 export default function App() {
     return (
-            <SignUp>
-        </SignUp>
+        <Form />
     )
 }
