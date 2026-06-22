@@ -8,12 +8,12 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from './routes/__root'
-import { Route as ProfileRouteImport } from './routes/profile'
-import { Route as AboutRouteImport } from './routes/about'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as PokemonIndexRouteImport } from './routes/pokemon/index'
-import { Route as PokemonIdRouteImport } from './routes/pokemon/$id'
+import { Route as rootRouteImport } from './Page/__root'
+import { Route as ProfileRouteImport } from './Page/profile'
+import { Route as AboutRouteImport } from './Page/about'
+import { Route as IndexRouteImport } from './Page/index'
+import { Route as PokemonIndexRouteImport } from './Page/pokemon/index'
+import { Route as PokemonIdRouteImport } from './Page/pokemon/$id'
 
 const ProfileRoute = ProfileRouteImport.update({
   id: '/profile',
