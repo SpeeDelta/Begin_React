@@ -1,11 +1,11 @@
 import {useForm} from "@tanstack/react-form";
 import {useState} from "react";
-import {Button} from "../utils/button.tsx";
-import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "../utils/card.tsx";
-import {Input} from "../utils/input.tsx";
-import {Label} from "../utils/label.tsx";
+import {Button} from "@/Page/General/utils/button.tsx";
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/Page/General/utils/card.tsx";
+import {Input} from "@/Page/General/utils/input.tsx";
+import {Label} from "@/Page/General/utils/label.tsx";
 import {AlertCircle, LoaderCircle} from "lucide-react";
-import {Alert, AlertDescription, AlertTitle} from "../utils/alert.tsx"
+import {Alert, AlertDescription, AlertTitle} from "@/Page/General/utils/alert.tsx"
 import {validateUsername} from "@/api/user.ts";
 
 export const SignUp = () => {
@@ -167,7 +167,7 @@ export const SignUp = () => {
                                         <AlertTitle>Form Error</AlertTitle>
                                         <AlertDescription>
                                             {submitError ?? "Error: please fill in all fields"}
-                                        </AlertDescription>
+                                        </AlertDescription> 
                                     </Alert>
                                 )
                             }

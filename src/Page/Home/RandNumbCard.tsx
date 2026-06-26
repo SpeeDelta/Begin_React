@@ -19,10 +19,8 @@ export default function RandNumbCard()
      */
 
     // avec Tanstack query
-    /**
-    */
-    // Simulate an async HTTP call-
-        //une Query => Requête qui va fetch des données sur un serveur
+    // Simulate an async HTTP call
+        // une Query => Requête qui va fetch des données sur un serveur
     const {data, isLoading, isError } = useQuery({
         /*
         data => contient les infos retourné
@@ -38,9 +36,7 @@ export default function RandNumbCard()
     if (isError) return <h2>Error!</h2>
 
     return (
-        <>
-            <h2>{data}</h2>
-        </>
+        <h2 className="text-4xl font-bold">{data}</h2>
     );
 }
 

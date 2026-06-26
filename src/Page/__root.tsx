@@ -1,5 +1,5 @@
 import { Outlet, createRootRoute } from "@tanstack/react-router";
-import Sidebar from "@/Page/General/SideBar";
+import Sidebar from "@/Page/General/features/SideBar.tsx";
 
 export const Route = createRootRoute({
     component: RootLayout,

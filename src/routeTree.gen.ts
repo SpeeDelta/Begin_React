@@ -9,12 +9,19 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './Page/__root'
-import { Route as ProfileRouteImport } from './Page/profile'
-import { Route as AboutRouteImport } from './Page/about'
-import { Route as IndexRouteImport } from './Page/index'
-import { Route as PokemonIndexRouteImport } from './Page/pokemon/index'
-import { Route as PokemonIdRouteImport } from './Page/pokemon/$id'
+import { Route as IndexRouteImport } from './Page//Home/Home.tsx'
+import { Route as AboutRouteImport } from './Page/AboutPage/features/AboutPage.tsx'
+import { Route as PokemonIndexRouteImport } from './Page/pokemon/features/PokemonPage.tsx'
+import { Route as PokemonIdRouteImport } from './Page/pokemon/utils/$id.tsx'
+import { Route as ProfileRouteImport } from './Page/General/features/profile.tsx'
+import { Route as GameRouteImport } from './Page/TicTacToe/features/Game.tsx'
+import { Route as FormRouteImport } from './Page/Form/features/FormEx.tsx'
 
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProfileRoute = ProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
@@ -25,19 +32,24 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PokemonIndexRoute = PokemonIndexRouteImport.update({
-  id: '/pokemon/',
-  path: '/pokemon/',
+  id: '/pokemon/index',
+  path: '/pokemon/index',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PokemonIdRoute = PokemonIdRouteImport.update({
   id: '/pokemon/$id',
   path: '/pokemon/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GameRoute = GameRouteImport.update({
+  id: '/game',
+  path: '/game',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FormRoute = FormRouteImport.update({
+  id: '/form_back',
+  path: '/form_back',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -47,6 +59,8 @@ export interface FileRoutesByFullPath {
   '/profile': typeof ProfileRoute
   '/pokemon/$id': typeof PokemonIdRoute
   '/pokemon/': typeof PokemonIndexRoute
+  '/game': typeof GameRoute
+  '/form_back': typeof FormRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +68,8 @@ export interface FileRoutesByTo {
   '/profile': typeof ProfileRoute
   '/pokemon/$id': typeof PokemonIdRoute
   '/pokemon': typeof PokemonIndexRoute
+  '/game': typeof GameRoute
+  '/form_back': typeof FormRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,13 +78,15 @@ export interface FileRoutesById {
   '/profile': typeof ProfileRoute
   '/pokemon/$id': typeof PokemonIdRoute
   '/pokemon/': typeof PokemonIndexRoute
+  '/game': typeof GameRoute
+  '/form_back': typeof FormRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/profile' | '/pokemon/$id' | '/pokemon/'
+  fullPaths: '/' | '/about' | '/profile' | '/pokemon/$id' | '/pokemon/' | '/game' | '/form_back'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/profile' | '/pokemon/$id' | '/pokemon'
-  id: '__root__' | '/' | '/about' | '/profile' | '/pokemon/$id' | '/pokemon/'
+  to: '/' | '/about' | '/profile' | '/pokemon/$id' | '/pokemon' | '/game' | '/form_back'
+  id: '__root__' | '/' | '/about' | '/profile' | '/pokemon/$id' | '/pokemon/' | '/game' | '/form'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -77,6 +95,8 @@ export interface RootRouteChildren {
   ProfileRoute: typeof ProfileRoute
   PokemonIdRoute: typeof PokemonIdRoute
   PokemonIndexRoute: typeof PokemonIndexRoute
+  GameRoute: typeof GameRoute
+  FormRoute: typeof FormRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -116,6 +136,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PokemonIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/game': {
+      id: '/game'
+      path: '/game'
+      fullPath: '/game'
+      preLoaderRoute: typeof GameRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/form_back': {
+      id: '/form_back'
+      path: '/form_back'
+      fullPath: '/form_back'
+      preLoaderRoute: typeof FormRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -125,6 +159,8 @@ const rootRouteChildren: RootRouteChildren = {
   ProfileRoute: ProfileRoute,
   PokemonIdRoute: PokemonIdRoute,
   PokemonIndexRoute: PokemonIndexRoute,
+  GameRoute: GameRoute,
+  FormRoute: FormRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

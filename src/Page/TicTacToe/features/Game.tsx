@@ -1,8 +1,14 @@
 //Gère l'historique des moves
 import {type SetStateAction, useState} from "react";
 import Board from "./Board.tsx";
+import {createFileRoute} from "@tanstack/react-router";
 
-export default function Game() {
+export const Route = createFileRoute("/game")({
+    component: GamePage,
+});
+
+// eslint-disable-next-line react-refresh/only-export-components
+function GamePage() {
     const [history, setHistory] = useState([Array(9).fill(null)]); // The history of moves
     const [currentMove, setCurrentMove] = useState(0); // Which step the User is viewing
     const xIsNext = currentMove % 2 === 0;
@@ -15,7 +21,7 @@ export default function Game() {
     // Enfaite qd tu clique sur les boutons (Go to Move) tu reset la partie à ce move et tu peux remettre un autre pions
 
     // update Game’s state to trigger a re-render,
-    function handlePlay(nextSquares: any[]) {
+    function handlePlay(nextSquares: never[]) {
         const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
         //history.slice(0, currentMove + 1) : garde l’historique jusqu’au coup courant inclus.
         // nextSquares : ajoute le nouveau plateau juste après.

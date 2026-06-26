@@ -103,7 +103,8 @@ const Sidebar = () => {
                         </NavIcon>
 
                         <SidebarList>
-                            {SidebarData.map((item: SidebarItem) => (
+                            {
+                                SidebarData.map((item: SidebarItem) => (
                                 <SidebarListItem key={item.path}>
                                     <SidebarLink to={item.path}>
                                         {item.icon}

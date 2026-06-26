@@ -18,18 +18,13 @@ export default function RandNumbList()
     if (isError) return <h2>Error!</h2>
 
     return (
-        <>
-            <div className="basis-1/3">
-                <ul className={"list-group"}>
-                    {Array.isArray(data) && data.map((nb, index) => (
-                        <li key={index} className={"list-group-item"}>{nb}</li>
-                    ))}
-                </ul>
-            </div>
-        </>
+        <ul className="mx-auto list-inside list-disc text-center">
+            {Array.isArray(data) && data.map((nb, index) => (
+                <li key={index}>{nb}</li>
+            ))}
+        </ul>
     );
 }
-
 
 // eslint-disable-next-line react-refresh/only-export-components
 export function mockHttpCall(): Promise<number[]> {

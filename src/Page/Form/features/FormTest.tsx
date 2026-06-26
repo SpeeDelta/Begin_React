@@ -1,11 +1,10 @@
 import {useForm} from "@tanstack/react-form";
-import {Label} from "@/Page/Login/utils/label.tsx";
-import {Input} from "@/Page/Login/utils/input.tsx";
-import {Card} from "@/Page/Login/utils/card.tsx";
-import {CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/Page/Form/utils/card.tsx";
-import {Button} from "@/Page/Login/utils/button.tsx";
+import {Label} from "@/Page/General/utils/label.tsx";
+import {Input} from "@/Page/General/utils/input.tsx";
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/Page/General/utils/card.tsx";
+import {Button} from "@/Page/General/utils/button.tsx";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/Page/General/utils/select.tsx";
 import {X} from "lucide-react";
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/Page/Form/utils/select.tsx";
 
 export const FormTest = () => {
 
@@ -19,15 +18,15 @@ export const FormTest = () => {
     });
 
     return (
-        <div className="flex min-h-screen items-center justify-center bg-muted/30 p-4">
+        <div className="bo-acf-card">
             <Card className="w-100">
                 <CardHeader>
-                    <CardTitle>Form</CardTitle>
+                    <CardTitle className="bo-acf-title">Form</CardTitle>
                     <CardDescription>
 
                     </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="bo-acf-form bo-acf-grid">
                     <form>
                         <div>
                             <form.Field
@@ -35,7 +34,7 @@ export const FormTest = () => {
                                 mode={"array"}
                                 children={(field) => (
                                     <>
-                                        <Label className="mr-2"> Interests </Label>
+                                        <Label className="mr-2 bo-acf-label"> Interests </Label>
                                         {field.state.value.map((_, index) => (
                                             <div key={index} className="my-2 flex items-center gap-2">
                                                 <Select
@@ -60,7 +59,7 @@ export const FormTest = () => {
                                                     children={(subField) => (
                                                         <Input
                                                             type={"text"}
-                                                            className="flex-1"
+                                                            className="flex-1 bo-acf-input"
                                                             value={subField.state.value}
                                                             onChange={(e) =>
                                                                 subField.handleChange(e.target.value)

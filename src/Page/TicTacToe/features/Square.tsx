@@ -1,6 +1,6 @@
-
 // // Gère la logique d'une case
-// @ts-ignore
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
 export default function Square({value, onSquareClick}) {
     return (
         <button className="square" onClick={onSquareClick}>

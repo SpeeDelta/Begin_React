@@ -1,8 +1,8 @@
 // Gère la logique du jeu Tic Tac Toe
-// @ts-ignore
 import Square from "./Square.tsx";
 
-// @ts-ignore
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
 export default function Board({ xIsNext, squares, onPlay }) {
     // view it like [null, null, null, null, null, null, null, null, null]
 
@@ -75,7 +75,7 @@ export default function Board({ xIsNext, squares, onPlay }) {
     );
 }
 
-function calculateWinner(squares: any[]) {
+function calculateWinner(squares: never[]) {
     const lines = [
         [0, 1, 2],
         [3, 4, 5],
